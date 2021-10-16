@@ -62,7 +62,10 @@ def test_get_inverted_index_from_disc():
     documents = load_documents(filepath='test_dataset.txt')
     inverted = build_inverted_index(documents=documents)
     inverted.dump(filepath="inverted_index_test")
-    inverted = InvertedIndex.load(filepath='inverted_index_test')
+    inverted2 = InvertedIndex.load(filepath='inverted_index_test')
+    assert inverted == inverted2, (
+        "InvertedIndex made with build function and by load a dump file are not the same"
+    )
     butterfly_expected_values = [1]
     bright_expected_values = [1, 3]
     blue_expected_values = [1, 3]

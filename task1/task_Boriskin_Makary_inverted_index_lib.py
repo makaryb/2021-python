@@ -38,6 +38,12 @@ class InvertedIndex:
         with open(filepath, "r") as fin:
             return cls(index=json.load(fin))
 
+    def __eq__(self, other):
+        outcome = (
+            self.index == other.index
+        )
+        return outcome
+
 
 def load_documents(filepath: str) -> Dict[int, str]:
     """Loads the documents dataset by the given path.
