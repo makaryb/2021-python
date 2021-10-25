@@ -2,3 +2,11 @@
 *.pytest_cache
 *.idea
 *.coverage
+*.DS_Store
+*wikipedia_sample
+*__pycache__
+*.pytest_cache
+*.zip
+*inverted.index
+*inverted_index_test
+
