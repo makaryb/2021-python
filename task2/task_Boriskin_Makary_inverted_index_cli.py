@@ -46,7 +46,7 @@ class InvertedIndex:
         if index:
             self.index = index
         else:
-            self.index = {}
+            self.index = dict()
 
     def query(self, words: List[str]) -> List[int]:
         """Return the list of relevant documents for the given query"""
@@ -54,16 +54,17 @@ class InvertedIndex:
             "query should be provided with a list of words, but user provided: "
             f"{repr(words)}"
         )
-        if len(words) == 1:
-            term = words[0]
-            return self.index[term] if term in self.index else []
 
-        result_for_each = {term: self.index[term] for term in words if term in self.index}
-        docs_list = list(result_for_each.values())
+        docs_list = []
+        for term in words:
+            if term in self.index:
+                docs_list.append(self.index[term])
+            else:
+                docs_list.append([])
         result = []
-        for next_list in docs_list[1:]:
-            for doc in docs_list[0]:
-                if doc in next_list:
+        for doc in docs_list[0]:
+            if all(doc in docs for docs in docs_list[1:]):
+                if doc not in result:
                     result.append(doc)
         return result
 
@@ -136,7 +137,7 @@ def callback_query(arguments):
     inverted_index = InvertedIndex.load(arguments.json_index)
     for query in arguments.query:
         document_ids = inverted_index.query(query)
-        print(', '.join(map(str, document_ids)))
+        print(','.join(map(str, document_ids)))
 
 
 def setup_parser(parser):
@@ -189,7 +190,7 @@ def setup_parser(parser):
 def main():
     """For example"""
     parser = ArgumentParser(
-        prog="inverted-index",
+        prog="Inverted Index CLI",
         description="tool to build, dump, load and query inverted index",
         formatter_class=ArgumentDefaultsHelpFormatter,
     )

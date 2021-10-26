@@ -14,18 +14,18 @@ class InvertedIndex:
 
     def query(self, words: List[str]) -> List[int]:
         """Return the list of relevant documents for the given query"""
-        if len(words) == 1:
-            term = words[0]
-            return self.index[term] if term in self.index else []
-        else:
-            result_for_each = {term: self.index[term] for term in words if term in self.index}
-            docs_list = list(result_for_each.values())
-            result = []
-            for next_list in docs_list[1:]:
-                for doc in docs_list[0]:
-                    if doc in next_list:
-                        result.append(doc)
-            return result
+        docs_list = []
+        for term in words:
+            if term in self.index:
+                docs_list.append(self.index[term])
+            else:
+                docs_list.append([])
+        result = []
+        for doc in docs_list[0]:
+            if all(doc in docs for docs in docs_list):
+                if doc not in result:
+                    result.append(doc)
+        return result
 
     def dump(self, filepath: str) -> None:
         """Dumps the inverted index dict to the given path"""
@@ -76,11 +76,12 @@ def build_inverted_index(documents: Dict[int, str]) -> InvertedIndex:
 
 
 def main():
-    documents = load_documents("wikipedia_sample")
+    documents = load_documents("../task2/wikipedia_sample")
     inverted_index = build_inverted_index(documents)
-    inverted_index.dump("inverted.index")
-    inverted_index = InvertedIndex.load("inverted.index")
-    document_ids = inverted_index.query(["two", "words"])
+    # inverted_index.dump("inverted.index")
+    # inverted_index = InvertedIndex.load("inverted.index")
+    document_ids = inverted_index.query(["beautiful", "sea", "horizon", "love"])
+    print(document_ids)
 
 
 if __name__ == "__main__":

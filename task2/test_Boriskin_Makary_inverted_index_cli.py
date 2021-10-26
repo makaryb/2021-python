@@ -1,6 +1,6 @@
 import os.path
 
-from task_Boriskin_Makary_inverted_index_lib import InvertedIndex, load_documents, build_inverted_index
+from task_Boriskin_Makary_inverted_index_cli import InvertedIndex, load_documents, build_inverted_index
 
 
 def test_can_instantiate_inverted_index():
