@@ -8,5 +8,7 @@
 *.pytest_cache
 *.zip
 *inverted.index
+*inverted_index_test.txt
 *inverted_index_test
+*queries.txt
 
