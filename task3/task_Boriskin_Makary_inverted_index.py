@@ -19,10 +19,12 @@ from dataset.
 
 from __future__ import annotations
 
+import os
 from io import TextIOWrapper
 import json
 import re
 import sys
+from struct import pack, unpack, calcsize
 from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter, FileType, ArgumentTypeError
 from typing import Dict, List
 
@@ -93,19 +95,44 @@ class InvertedIndex:
 
     def dump(self, filepath: str) -> None:
         """Dumps the inverted index dict to the given path"""
-        with open(filepath, 'w', encoding='utf8') as fout:
-            json.dump(self.index, fout)
+        with open(filepath, 'wb') as fout:
+            for word in self.index:
+                word_and_docs_count = {}
+                doc_ids = self.index[word]
+                word_and_docs_count[word] = len(doc_ids)
+                header: bytes = json.dumps(word_and_docs_count).encode('utf-8')
+                meta: int = len(header)
+                fout.write(pack('>I', meta))
+                fout.write(header)
+                fout.write(pack(f'>{len(doc_ids)}H', *doc_ids))
 
     @classmethod
     def load(cls, filepath: str) -> InvertedIndex:
         """Loads the inverted index dict by the given path"""
         print(f"load inverted index from filepath {filepath}", file=sys.stderr)
-        with open(filepath, 'r', encoding='utf8') as fin:
-            return cls(index=json.load(fin))
+
+        size = os.path.getsize(filepath)
+        inverted_index = dict()
+        fin = open(filepath, 'rb')
+        while fin.tell() < size:
+            meta = unpack('>I', fin.read(calcsize('>I')))[0]
+            header = unpack(f'{meta}s', fin.read(calcsize(f'{meta}s')))[0].decode('utf-8')
+            word_and_docs_count = json.loads(header)
+            for word in word_and_docs_count:
+                docs_count = word_and_docs_count[word]
+                doc_ids = list(
+                    unpack(f'>{docs_count}H', fin.read(calcsize(f'>{docs_count}H')))
+                )
+                inverted_index[word] = doc_ids
+        fin.close()
+
+        inverted = InvertedIndex()
+        inverted.index = inverted_index
+        return inverted
 
     def __eq__(self, other):
         outcome = (
-                self.index == other.index
+            self.index == other.index
         )
         return outcome
 
@@ -151,6 +178,7 @@ def callback_build(arguments):
     return process_build(arguments.strategy,
                          arguments.dataset_filepath,
                          arguments.inverted_index_filepath)
+
 
 def process_build(strategy, dataset_filepath, inverted_index_filepath):
     if strategy == "json":
@@ -233,11 +261,6 @@ def setup_parser(parser):
         default="struct",
         help="choose the strategy: json or struct (by default)",
     )
-    query_parser.add_argument(
-        "--query", nargs="+",
-        action="append",
-        help="query to run against inverted index",
-    )
     query_file_group = query_parser.add_mutually_exclusive_group(required=True)
     query_file_group.add_argument(
         "--query-file-utf8", dest="query_file",
@@ -250,6 +273,11 @@ def setup_parser(parser):
         type=EncodedFileType('r', encoding='cp1251'),
         default=TextIOWrapper(sys.stdin.buffer, encoding='cp1251'),
         help="query file in cp1251 to get queries for inverted index",
+    )
+    query_file_group.add_argument(
+        "-q", "--query", nargs="+",
+        action="append",
+        help="query to run against inverted index",
     )
     query_parser.set_defaults(callback=callback_query)
 

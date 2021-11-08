@@ -3,12 +3,12 @@ from argparse import Namespace
 
 import pytest
 
-from task_Boriskin_Makary_inverted_index_cli import InvertedIndex, load_documents, build_inverted_index
-from task_Boriskin_Makary_inverted_index_cli import callback_query, process_queries
-from task_Boriskin_Makary_inverted_index_cli import callback_build, process_build
-from task_Boriskin_Makary_inverted_index_cli import DEFAULT_INVERTED_INDEX_STORE_PATH
+from task_Boriskin_Makary_inverted_index import InvertedIndex, load_documents, build_inverted_index
+from task_Boriskin_Makary_inverted_index import callback_query, process_queries
+from task_Boriskin_Makary_inverted_index import callback_build, process_build
+from task_Boriskin_Makary_inverted_index import DEFAULT_INVERTED_INDEX_STORE_PATH
 
-DEFAULT_TEST_INVERTED_INDEX_STORE_PATH = 'inverted_index_test.txt'
+DEFAULT_TEST_INVERTED_INDEX_STORE_PATH = 'inverted_index_test'
 DEFAULT_TEST_QUERIES_STORE_PATH = 'queries.txt'
 
 DATASET_BIG_FILEPATH = 'wikipedia_sample'
@@ -66,15 +66,15 @@ def test_build_inverted_index():
 def test_dump_inverted_index_on_disc():
     documents = load_documents(filepath='test_dataset.txt')
     inverted = build_inverted_index(documents=documents)
-    inverted.dump(filepath="inverted_index_test.txt")
-    assert os.path.exists('inverted_index_test.txt') is True
+    inverted.dump(filepath="inverted_index_test")
+    assert os.path.exists('inverted_index_test') is True
 
 
 def test_get_inverted_index_from_disc():
     documents = load_documents(filepath='test_dataset.txt')
     inverted = build_inverted_index(documents=documents)
-    inverted.dump(filepath="inverted_index_test.txt")
-    inverted2 = InvertedIndex.load(filepath='inverted_index_test.txt')
+    inverted.dump(filepath="inverted_index_test")
+    inverted2 = InvertedIndex.load(filepath='inverted_index_test')
     assert inverted == inverted2, (
         "InvertedIndex made with build function and by load a dump file are not the same"
     )
@@ -199,3 +199,13 @@ def test_callback_build_can_load_documents(dataset_filepath):
                                 dataset_filepath=dataset_filepath,
                                 inverted_index_filepath=DEFAULT_INVERTED_INDEX_STORE_PATH)
     callback_build(build_arguments)
+
+
+def test_queries_utf8(capsys):
+    with open("queries.txt", 'r', encoding='utf-8') as file:
+        process_queries(inverted_index_filepath="inverted_index_test", query_file=file)
+        expected = "1\n\n1,3"
+        captured = capsys.readouterr()
+        assert expected in captured.out, (
+             f"\nExpected: 1\\n\\n1,3 in stdout\nYou got: {captured.out}"
+        )
