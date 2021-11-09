@@ -181,12 +181,9 @@ def callback_build(arguments):
 
 
 def process_build(strategy, dataset_filepath, inverted_index_filepath):
-    if strategy == "json":
-        documents = load_documents(dataset_filepath)
-        inverted_index = build_inverted_index(documents)
-        inverted_index.dump(inverted_index_filepath)
-    elif strategy == "struct":
-        print("pickle strategy not implemented yet")
+    documents = load_documents(dataset_filepath)
+    inverted_index = build_inverted_index(documents)
+    inverted_index.dump(inverted_index_filepath)
 
 
 def callback_query(arguments):

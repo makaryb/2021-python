@@ -202,7 +202,7 @@ def test_callback_build_can_load_documents(dataset_filepath):
 
 
 def test_queries_utf8(capsys):
-    with open("queries.txt", 'r', encoding='utf-8') as file:
+    with open(DEFAULT_TEST_QUERIES_STORE_PATH, 'r', encoding='utf-8') as file:
         process_queries(inverted_index_filepath="inverted_index_test", query_file=file)
         expected = "1\n\n1,3"
         captured = capsys.readouterr()
