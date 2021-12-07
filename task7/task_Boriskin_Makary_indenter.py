@@ -1,6 +1,6 @@
-""" task_identifier
+""" task_indenter
 
-use with Identifier() as identifier:
+use with Indenter() as identifier:
 """
 
 
