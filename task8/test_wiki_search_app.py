@@ -1,4 +1,3 @@
-from flask import request
 import pytest
 
 from wiki_search_app import (
@@ -39,4 +38,3 @@ def test_can_parse_wiki_search_output():
     assert 20 == len(documents)
 
     assert FIRST_PYTHON_NETWORK_RESULT == documents[0]
-

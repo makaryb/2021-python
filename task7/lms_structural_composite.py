@@ -39,7 +39,7 @@ class ProgrammingAssignment(LearningItem):
 
 class CompositeLearningItem(LearningItem):
     def __init__(self, name, learning_items):
-        super.__init__(name)
+        super().__init__(name)
         self.learning_items = []
         self.learning_items.extend(learning_items or [])
 
@@ -54,10 +54,9 @@ class CompositeLearningItem(LearningItem):
         return study_time
 
 
-
 def main():
-#     course = ??()
-#     course.add(...)
+    #     course = ??()
+    #     course.add(...)
     video_item_1 = VideoItem(name="Composite Design Pattern", length=20)
     video_item_2 = VideoItem(name="Composite Design Pattern v.2", length=10)
     lesson_design_patterns = CompositeLearningItem(name="lesson on composite")
@@ -68,7 +67,8 @@ def main():
     quiz = Quiz(name="Adapter Design Patterns Quiz", questions=["a", "b", "c"])
     lesson_adapter = CompositeLearningItem(name="lesson on adapter", learning_items=[video_item_3, quiz])
 
-    module_design_pattern = CompositeLearningItem(name="Design Patterns", learning_items=[lesson_composite, lesson_adapter])
+    module_design_pattern = CompositeLearningItem(name="Design Patterns",
+                                                  learning_items=[lesson_composite, lesson_adapter])
     module_design_pattern.add(
         ProgrammingAssignment(name="Factory Method Programming Assignment", language="python")
     )
