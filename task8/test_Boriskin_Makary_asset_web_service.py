@@ -2,8 +2,8 @@ import pytest
 
 from task_Boriskin_Makary_asset_web_service import (
     app,
-    add_asset, cleanup_asset_list, page_not_found,
-    cbr_daily, cbr_key_indicators
+    add_asset, cleanup_asset_list, not_found,
+    get_cbr_daily, get_cbr_key_indicators
 )
 
 
@@ -27,7 +27,7 @@ def test_can_cleanup_by_request(client):
 
 
 def test_page_not_found(client):
-    app_response = client.get("/api/asset/rout/not/exists")
+    app_response = client.get("/api/asset/route/not/exists")
     code = app_response.status_code
     assert 404 == code, (
         f"Expected: 404 code. Received: {code}"
@@ -36,7 +36,7 @@ def test_page_not_found(client):
     assert "This route is not found" == response_text, (
         f"Expected: predefined text. Received: {response_text}"
     )
-    assert "This route is not found", 404 == page_not_found()
+    assert "This route is not found", 404 == not_found()
 
 
 def test_add_asset(client):
@@ -95,7 +95,7 @@ def test_can_get_by_name(client):
 
 
 def test_can_parse_cbr_daily(client):
-    assert all(("EUR" in cbr_daily(), "GBP" in cbr_daily(), "USD" in cbr_daily()))
+    assert all(("EUR" in get_cbr_daily(), "GBP" in get_cbr_daily(), "USD" in get_cbr_daily()))
     app_response = client.get("/cbr/daily")
     assert 200 == app_response.status_code
     assert app_response.is_json
@@ -103,9 +103,9 @@ def test_can_parse_cbr_daily(client):
 
 def test_can_parse_cbr_key_indicators(client):
     assert all(
-        ("EUR" in cbr_key_indicators(), "USD" in cbr_key_indicators(),
-         "Ag" in cbr_key_indicators(), "Au" in cbr_key_indicators(),
-         "Pt" in cbr_key_indicators(), "Pd" in cbr_key_indicators())
+        ("EUR" in get_cbr_key_indicators(), "USD" in get_cbr_key_indicators(),
+         "Ag" in get_cbr_key_indicators(), "Au" in get_cbr_key_indicators(),
+         "Pt" in get_cbr_key_indicators(), "Pd" in get_cbr_key_indicators())
     )
     app_response = client.get("/cbr/key_indicators")
     assert 200 == app_response.status_code

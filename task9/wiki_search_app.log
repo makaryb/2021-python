@@ -1,0 +1,120 @@
+20211219_234340.250 task_Boriskin_Makary_web_service_log DEBUG start processing query: python yu
+20211219_234340.256 task_Boriskin_Makary_web_service_log INFO found 307 articles for query: python yu
+20211219_234340.256 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python yu
+20211219_234341.374 task_Boriskin_Makary_web_service_log DEBUG start processing query: python test
+20211219_234341.380 task_Boriskin_Makary_web_service_log INFO found 2491 articles for query: python test
+20211219_234341.381 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python test
+20211219_234342.395 task_Boriskin_Makary_web_service_log DEBUG start processing query: python semantic
+20211219_234342.397 task_Boriskin_Makary_web_service_log INFO found 390 articles for query: python semantic
+20211219_234342.398 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python semantic
+20211219_234343.332 task_Boriskin_Makary_web_service_log DEBUG start processing query: python test
+20211219_234343.338 task_Boriskin_Makary_web_service_log INFO found 2491 articles for query: python test
+20211219_234343.338 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python test
+20211219_234344.343 task_Boriskin_Makary_web_service_log DEBUG start processing query: python redner
+20211219_234344.347 task_Boriskin_Makary_web_service_log INFO found 1 articles for query: python redner
+20211219_234344.348 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python redner
+20211219_234345.266 task_Boriskin_Makary_web_service_log DEBUG start processing query: python test
+20211219_234345.271 task_Boriskin_Makary_web_service_log INFO found 2491 articles for query: python test
+20211219_234345.271 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python test
+20211219_234346.273 task_Boriskin_Makary_web_service_log DEBUG start processing query: python melkeTest
+20211219_234346.277 task_Boriskin_Makary_web_service_log INFO found 0 articles for query: python melkeTest
+20211219_234346.278 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python melkeTest
+20211219_234347.311 task_Boriskin_Makary_web_service_log DEBUG start processing query: python test
+20211219_234347.317 task_Boriskin_Makary_web_service_log INFO found 2491 articles for query: python test
+20211219_234347.317 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python test
+20211219_234348.301 task_Boriskin_Makary_web_service_log DEBUG start processing query: python upload
+20211219_234348.306 task_Boriskin_Makary_web_service_log INFO found 215 articles for query: python upload
+20211219_234348.306 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python upload
+20211219_234349.332 task_Boriskin_Makary_web_service_log DEBUG start processing query: python pypi
+20211219_234349.337 task_Boriskin_Makary_web_service_log INFO found 90 articles for query: python pypi
+20211219_234349.338 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python pypi
+20211219_234350.350 task_Boriskin_Makary_web_service_log DEBUG start processing query: python test_client
+20211219_234350.356 task_Boriskin_Makary_web_service_log INFO found 456 articles for query: python test_client
+20211219_234350.356 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python test_client
+20211219_234351.207 task_Boriskin_Makary_web_service_log DEBUG start processing query: python overtest
+20211219_234351.211 task_Boriskin_Makary_web_service_log INFO found 0 articles for query: python overtest
+20211219_234351.211 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python overtest
+20211219_234352.125 task_Boriskin_Makary_web_service_log DEBUG start processing query: python pytest
+20211219_234352.130 task_Boriskin_Makary_web_service_log INFO found 5 articles for query: python pytest
+20211219_234352.130 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python pytest
+20211219_234353.165 task_Boriskin_Makary_web_service_log DEBUG start processing query: python sentry
+20211219_234353.171 task_Boriskin_Makary_web_service_log INFO found 77 articles for query: python sentry
+20211219_234353.171 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python sentry
+20211219_234354.276 task_Boriskin_Makary_web_service_log DEBUG start processing query: python wix
+20211219_234354.281 task_Boriskin_Makary_web_service_log INFO found 12 articles for query: python wix
+20211219_234354.281 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python wix
+20211219_234355.306 task_Boriskin_Makary_web_service_log DEBUG start processing query: python protos
+20211219_234355.312 task_Boriskin_Makary_web_service_log INFO found 137 articles for query: python protos
+20211219_234355.313 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python protos
+20211219_234356.320 task_Boriskin_Makary_web_service_log DEBUG start processing query: python proto
+20211219_234356.323 task_Boriskin_Makary_web_service_log INFO found 137 articles for query: python proto
+20211219_234356.324 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python proto
+20211219_234357.288 task_Boriskin_Makary_web_service_log DEBUG start processing query: python latest
+20211219_234357.294 task_Boriskin_Makary_web_service_log INFO found 1102 articles for query: python latest
+20211219_234357.294 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python latest
+20211219_234358.266 task_Boriskin_Makary_web_service_log DEBUG start processing query: python greatest
+20211219_234358.271 task_Boriskin_Makary_web_service_log INFO found 1044 articles for query: python greatest
+20211219_234358.271 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python greatest
+20211219_234359.344 task_Boriskin_Makary_web_service_log DEBUG start processing query: python example
+20211219_234359.349 task_Boriskin_Makary_web_service_log INFO found 4022 articles for query: python example
+20211219_234359.349 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python example
+20211219_234400.416 task_Boriskin_Makary_web_service_log DEBUG start processing query: python api
+20211219_234400.419 task_Boriskin_Makary_web_service_log INFO found 1246 articles for query: python api
+20211219_234400.419 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python api
+20211219_234401.387 task_Boriskin_Makary_web_service_log DEBUG start processing query: python odoo11
+20211219_234401.389 task_Boriskin_Makary_web_service_log INFO found 6 articles for query: python odoo11
+20211219_234401.389 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python odoo11
+20211219_234402.125 task_Boriskin_Makary_web_service_log DEBUG start processing query: python addon
+20211219_234402.131 task_Boriskin_Makary_web_service_log INFO found 65 articles for query: python addon
+20211219_234402.131 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python addon
+20211219_234402.987 task_Boriskin_Makary_web_service_log DEBUG start processing query: python test
+20211219_234402.992 task_Boriskin_Makary_web_service_log INFO found 2491 articles for query: python test
+20211219_234402.992 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python test
+20211219_234404.105 task_Boriskin_Makary_web_service_log DEBUG start processing query: python component
+20211219_234404.110 task_Boriskin_Makary_web_service_log INFO found 1761 articles for query: python component
+20211219_234404.111 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python component
+20211219_234405.148 task_Boriskin_Makary_web_service_log DEBUG start processing query: python glasswall
+20211219_234405.151 task_Boriskin_Makary_web_service_log INFO found 7 articles for query: python glasswall
+20211219_234405.152 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python glasswall
+20211219_234406.052 task_Boriskin_Makary_web_service_log DEBUG start processing query: python azure
+20211219_234406.057 task_Boriskin_Makary_web_service_log INFO found 389 articles for query: python azure
+20211219_234406.058 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python azure
+20211219_234407.125 task_Boriskin_Makary_web_service_log DEBUG start processing query: python product
+20211219_234407.129 task_Boriskin_Makary_web_service_log INFO found 2263 articles for query: python product
+20211219_234407.129 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python product
+20211219_234408.129 task_Boriskin_Makary_web_service_log DEBUG start processing query: python test
+20211219_234408.134 task_Boriskin_Makary_web_service_log INFO found 2491 articles for query: python test
+20211219_234408.134 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python test
+20211219_234409.123 task_Boriskin_Makary_web_service_log DEBUG start processing query: python automation
+20211219_234409.130 task_Boriskin_Makary_web_service_log INFO found 381 articles for query: python automation
+20211219_234409.130 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python automation
+20211219_234410.349 task_Boriskin_Makary_web_service_log DEBUG start processing query: python funtest
+20211219_234410.352 task_Boriskin_Makary_web_service_log INFO found 41 articles for query: python funtest
+20211219_234410.352 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python funtest
+20211219_234411.478 task_Boriskin_Makary_web_service_log DEBUG start processing query: python ray test
+20211219_234411.482 task_Boriskin_Makary_web_service_log INFO found 414 articles for query: python ray test
+20211219_234411.483 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python ray test
+20211219_234412.605 task_Boriskin_Makary_web_service_log DEBUG start processing query: python pytest console scripts
+20211219_234412.609 task_Boriskin_Makary_web_service_log INFO found 2 articles for query: python pytest console scripts
+20211219_234412.609 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python pytest console scripts
+20211219_234413.461 task_Boriskin_Makary_web_service_log DEBUG start processing query: python pytest notion
+20211219_234413.465 task_Boriskin_Makary_web_service_log INFO found 4 articles for query: python pytest notion
+20211219_234413.465 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python pytest notion
+20211219_234414.355 task_Boriskin_Makary_web_service_log DEBUG start processing query: python test2 tanghao
+20211219_234414.360 task_Boriskin_Makary_web_service_log INFO found 1 articles for query: python test2 tanghao
+20211219_234414.360 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python test2 tanghao
+20211219_234415.142 task_Boriskin_Makary_web_service_log DEBUG start processing query: python pytest telegram
+20211219_234415.146 task_Boriskin_Makary_web_service_log INFO found 0 articles for query: python pytest telegram
+20211219_234415.146 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python pytest telegram
+20211219_234416.092 task_Boriskin_Makary_web_service_log DEBUG start processing query: python test9485
+20211219_234416.097 task_Boriskin_Makary_web_service_log INFO found 3 articles for query: python test9485
+20211219_234416.097 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python test9485
+20211219_234416.994 task_Boriskin_Makary_web_service_log DEBUG start processing query: python flask pytest
+20211219_234416.998 task_Boriskin_Makary_web_service_log INFO found 2 articles for query: python flask pytest
+20211219_234416.998 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python flask pytest
+20211219_234417.931 task_Boriskin_Makary_web_service_log DEBUG start processing query: python redlockfifo test
+20211219_234417.935 task_Boriskin_Makary_web_service_log INFO found 0 articles for query: python redlockfifo test
+20211219_234417.935 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python redlockfifo test
+20211219_234419.163 task_Boriskin_Makary_web_service_log DEBUG start processing query: python pypi test test
+20211219_234419.169 task_Boriskin_Makary_web_service_log INFO found 28 articles for query: python pypi test test
+20211219_234419.169 task_Boriskin_Makary_web_service_log DEBUG finish processing query: python pypi test test

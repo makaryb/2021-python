@@ -108,7 +108,6 @@ class AssetList:
             raise ValueError()
         currency_dict = parse_cbr_currency_base_daily(cbr_daily_response.text)
         metal_dict = parse_cbr_key_indicators(cbr_key_indicators_response.text)
-
         total_revenue = 0
         for asset in self.asset_dict.values():
             if asset.char_code in metal_dict:
@@ -117,7 +116,6 @@ class AssetList:
                 rate = currency_dict.get(asset.char_code, 0)
             revenue = asset.calculate_revenue(period, rate)
             total_revenue += revenue
-
         return total_revenue
 
     def get_asset_list(self, name_list=None):
@@ -132,13 +130,13 @@ class AssetList:
 
 
 @app.errorhandler(404)
-def page_not_found(_ignored):
+def not_found(_ignored):
     """Обращение по несуществующему route"""
     return "This route is not found", 404
 
 
 @app.errorhandler(503)
-def page_do_not_exist(_ignored):
+def not_exist(_ignored):
     """Недоступность cbr.ru"""
     return 'CBR service is unavailable', 503
 
@@ -160,7 +158,7 @@ def calculate_revenue():
             revenue = asset_list.calculate_all_revenue(int(period))
             revenues[str(int(period))] = revenue
         return jsonify(revenues)
-    except:
+    except Exception:
         abort(503)
 
 
@@ -193,20 +191,20 @@ def add_asset(char_code, name, capital, interest):
 
 
 @app.route("/cbr/daily")
-def cbr_daily():
+def get_cbr_daily():
     """Запрос на страницу “daily” (взять курсы валют), ответ: {“char_code”: rate}"""
     try:
         cbr_daily_response = requests.get(CBR_DAILY_URL)
         if not cbr_daily_response.ok:
             abort(503)
-        currency_dict = parse_cbr_currency_base_daily(cbr_daily_response.text)
-        return currency_dict
-    except:
+        curr_dict = parse_cbr_currency_base_daily(cbr_daily_response.text)
+        return curr_dict
+    except Exception:
         abort(503)
 
 
 @app.route("/cbr/key_indicators")
-def cbr_key_indicators():
+def get_cbr_key_indicators():
     """Запрос на страницу “key-indicators” (взять USD, EUR и драг металлы), ответ {“char_code”: rate}"""
     try:
         cbr_key_indicators_response = requests.get(CBR_KEY_INDICATORS_URL)
@@ -214,7 +212,7 @@ def cbr_key_indicators():
             abort(503)
         metal_dict = parse_cbr_key_indicators(cbr_key_indicators_response.text)
         return metal_dict
-    except:
+    except Exception:
         abort(503)
 
 
